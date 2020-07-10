@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin: 0px; 
+}
+#firstimg{
+    padding: 40px 20px 50px 0px;
+    height: 500px;
+    margin: 0px; 
+    float: left; 
+}
+#secondimg{
+    width: 60px;
+    position: relative;
+    top: 10px;
+}
+#heading{
+    background-color: navy; 
+    padding: 20px;
+    font-family: 'Muli', sans-serif;
+    color: white;
+}
+.quote{
+    margin: 100px;
+    font-size: 70px;
+    direction: rtl;
+    font-family: 'Muli', sans-serif;
+}
+.names{
+    display: inline-block;
+    margin: 70px;
+    padding: 0px;
+
+}

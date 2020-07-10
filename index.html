@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            fetch data
+        </title>
+        <link rel="stylesheet" type="text/css" href="css/covid.css" />
+    </head>
+    <body>
+        <selction>
+            <header>
+        <h1 align="center" id="heading">COVID-19 CORONAVIRUS PANDEMIC</h1></header>
+        </header>
+        </selction>
+        
+        <img id="firstimg" src="images/CoronavirusAnimation2.gif" alt="covid19" /></br>
+        <p class="quote">let's stay safe & fight together against cor<img id="secondimg" src="images/corona.png" alt="coronavirus" />na virus</p>
+        <h2 style="color: red; clear: both;font-family:'Muli', sans-serif;" align="center">COVID-19 UPDATES</h2>
+        <div class="names" style="color: red;"><h2>Coronavirus Cases</h2> <h3 id="confirmed"></h3></div>
+        <div class="names" style="color:teals;"><h2>New Cases</h2> <h3 id="new_cases"></h3> </div>
+        <div class="names" style="color: blue;"><h2>Acitve</h2> <h3 id="active"></h3> </div>
+        <div class="names" style="color: green;"><h2>Recovered</h2> <h3 id="recovered"></h3></div>
+        <div class="names" style="color: red;"><h2>Deaths</h2> <h3 id="deaths"></h3> </div>
+        <script type="text/javascript">
+            fetch("https://corona-api.com/timeline")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    active=data.data[0]['active']
+                    confirm=data.data[0]['confirmed']
+                    death=data.data[0]['deaths']
+                    recover=data.data[0]['recovered']
+                    new_confirm=data.data[0]['new_confirmed']
+                    new_recover=data.data[0]['new_recovered']
+                    new_death=data.data[0]['new_deaths']
+                    document.getElementById("active").innerHTML=active.toLocaleString('en-IN');
+                    document.getElementById("confirmed").innerHTML=confirm.toLocaleString('en-IN');
+                    document.getElementById("recovered").innerHTML=recover.toLocaleString('en-IN')+" [↑"+new_recover.toLocaleString('en-IN')+"]";
+                    document.getElementById("deaths").innerHTML=death.toLocaleString('en-IN')+" [↑"+new_death.toLocaleString('en-IN')+"]";
+                    document.getElementById("new_cases").innerHTML=new_confirm.toLocaleString('en-IN');
+                })
+                
+        </script>
+    </body>
+</html>
