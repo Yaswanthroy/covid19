@@ -15,12 +15,14 @@
         
         <img id="firstimg" src="images/CoronavirusAnimation2.gif" alt="covid19" /></br>
         <p class="quote">let's stay safe & fight together against cor<img id="secondimg" src="images/corona.png" alt="coronavirus" />na virus</p>
-        <h2 style="color: red; clear: both;font-family:'Muli', sans-serif;" align="center">COVID-19 UPDATES</h2>
+        <h2 id="date" style="color: darkred; clear: both;font-family:'Muli', sans-serif;font-size: xx-large;" align="center"></h2>
         <div class="names" style="color: red;"><h2>Coronavirus Cases</h2> <h3 id="confirmed"></h3></div>
         <div class="names" style="color:teals;"><h2>New Cases</h2> <h3 id="new_cases"></h3> </div>
         <div class="names" style="color: blue;"><h2>Acitve</h2> <h3 id="active"></h3> </div>
         <div class="names" style="color: green;"><h2>Recovered</h2> <h3 id="recovered"></h3></div>
-        <div class="names" style="color: red;"><h2>Deaths</h2> <h3 id="deaths"></h3> </div>
+        <div class="names" style="color: red;"><h2>Deaths</h2> <h3 id="deaths"></h3> </div></br>
+        <h2 style="font-family: 'Muli', sans-serif; text-align: center; font-weight: bolder;font-size: 30px; color: darkorange;">keep track of Covid-19 Patients by using Aarogya setu app</h2>
+        <a href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu"><img class="center" style="height: 120px;" src="images/28_04_2020-aarogya_setu_app_20227725_83451376.jpg" alt+"aarogya_setu" /></a>
         <script type="text/javascript">
             fetch("https://corona-api.com/timeline")
                 .then(function(response){
@@ -28,12 +30,14 @@
                 })
                 .then(function(data){
                     active=data.data[0]['active']
+                    date=data.data[0]['date']
                     confirm=data.data[0]['confirmed']
                     death=data.data[0]['deaths']
                     recover=data.data[0]['recovered']
                     new_confirm=data.data[0]['new_confirmed']
                     new_recover=data.data[0]['new_recovered']
                     new_death=data.data[0]['new_deaths']
+                    document.getElementById("date").innerHTML="COVID-19 UPDATES "+"(last updated at "+date+")";
                     document.getElementById("active").innerHTML=active.toLocaleString('en-IN');
                     document.getElementById("confirmed").innerHTML=confirm.toLocaleString('en-IN');
                     document.getElementById("recovered").innerHTML=recover.toLocaleString('en-IN')+" [↑"+new_recover.toLocaleString('en-IN')+"]";

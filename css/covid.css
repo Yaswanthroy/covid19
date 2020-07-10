@@ -27,7 +27,12 @@
 }
 .names{
     display: inline-block;
-    margin: 70px;
+    margin: 40px;
     padding: 0px;
+    font-size: 25px;
 
+}
+.center {
+    margin: 10px auto 20px;
+    display: block;
 }
