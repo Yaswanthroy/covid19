@@ -40,6 +40,7 @@
         </script>
         <script type="text/javascript">
         function func(i){
+            document.write("<h1>name"+'\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0'+"Confirmed</h1>");
             fetch("https://api.covidindiatracker.com/state_data.json")
                 .then(function(response){
                     return response.json();
@@ -48,7 +49,7 @@
                     var state=data[i].districtData
                     for(var j=0;j<state.length;j++){
                         console.log(state[j].name)
-                        document.write("<h1>name:"+state[j].name+'\xa0\xa0\xa0\xa0\xa0\xa0\xa0'+"Confirmed cases: "+state[j].confirmed+"</h1></br>");
+                        document.write("<h1>"+state[j].name+'\xa0\xa0\xa0\xa0\xa0\xa0\xa0'+state[j].confirmed+"</h1>");
                     }
                 })
         }
