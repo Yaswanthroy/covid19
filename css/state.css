@@ -1,0 +1,22 @@
+table{
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    background-color: #4287f5;
+    color: white;
+  }
+  th,td {
+        width: 100px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      h2 {
+        color: #4287f5;
+      }
+      #hi{
+          font-size: 100px;
+      }

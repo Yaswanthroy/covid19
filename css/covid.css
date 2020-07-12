@@ -36,3 +36,7 @@
     margin: 10px auto 20px;
     display: block;
 }
+a:hover{
+    color: darkslategray;
+    font-size: 18px;
+}

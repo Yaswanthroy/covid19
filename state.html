@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Indian states
+        </title>
+        <link rel="stylesheet" type="text/css" href="css/state.css" />
+    </head>
+    <table>
+        <tr>
+            <th>State</th>
+            <th>Confirmed</th>
+            <th>Active</th>
+            <th>Recovered</th>
+            <th>Deaths</th>
+            <th>DistrictData</th>
+        </tr>
+    
+        <tbody id="myTable"></tbody>
+    </table>
+        <script type="text/javascript">
+            fetch("https://api.covidindiatracker.com/state_data.json")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    var table = document.getElementById('myTable')
+                    for(var i=0;i<data.length;i++){
+                        var row = `<tr>
+							<td>${data[i].state}</td>
+							<td>${data[i].confirmed}</td>
+							<td>${data[i].active}</td>
+                            <td>${data[i].recovered}</td>
+                            <td>${data[i].deaths}</td>
+                            <td><input id="hihi" type="button" value="click here" onclick=func(${i}) /></td>
+					  </tr>`
+                      table.innerHTML += row
+                    }
+                })
+        </script>
+        <script type="text/javascript">
+        function func(i){
+            fetch("https://api.covidindiatracker.com/state_data.json")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    var state=data[i].districtData
+                    for(var j=0;j<state.length;j++){
+                        console.log(state[j].name)
+                        document.write("<h1>name:"+state[j].name+'\xa0\xa0\xa0\xa0\xa0\xa0\xa0'+"Confirmed cases: "+state[j].confirmed+"</h1></br>");
+                    }
+                })
+        }
+        </script>
+</html>
