@@ -3,8 +3,9 @@
     margin: 0px; 
 }
 #firstimg{
-    padding: 40px 20px 50px 0px;
+    padding: 40px 20px 100px 0px;
     height: 500px;
+    width: 600px;
     margin: 0px; 
     float: left; 
 }
@@ -20,17 +21,16 @@
     color: white;
 }
 .quote{
-    margin: 50px;
+    margin: 100px;
     font-size: 70px;
     direction: rtl;
     font-family: 'Muli', sans-serif;
 }
 .names{
     display: inline-block;
-    margin: 40px;
+    margin: 30px;
     padding: 0px;
     font-size: 25px;
-
 }
 .center {
     margin: 10px auto 20px;
@@ -39,4 +39,41 @@
 a:hover{
     color: darkslategray;
     font-size: 18px;
+}
+.blink {
+	-webkit-animation: blink 1.5s linear infinite;
+	-moz-animation: blink 1.5s linear infinite;
+	-ms-animation: blink 1.5s linear infinite;
+	-o-animation: blink 1.5s linear infinite;
+	 animation: blink 1.5s linear infinite;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
 }

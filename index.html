@@ -13,18 +13,25 @@
         <h1 align="center" id="heading">COVID-19 CORONAVIRUS PANDEMIC</h1></header>
         </header>
         </selction>
-        <img id="firstimg" src="images/CoronavirusAnimation2.gif" alt="covid19" /></br>
+        <img id="firstimg" src="images/tenor.gif" alt="covid19" /></br>
         <p class="quote">let's stay safe & fight together against cor<img id="secondimg" src="images/corona.png" alt="coronavirus" />na virus</p>
-        <h2 style="color: darkred; clear: both;font-family:'Muli', sans-serif;font-size: xx-large;" align="center">COVID-19 UPDATES</h2>
-        <h2 id="date" align="center" style="color: darkred; clear: both;font-family:'Muli', sans-serif;font-size: xx-large;"></h2>
-        <div class="names" style="color: red;"><h2>Coronavirus Cases</h2> <h3 id="confirmed"></h3></div>
+        <h1 style="color: darkred; clear: both;font-family:'Muli', sans-serif;font-size: xx-large;" align="center">COVID-19 UPDATES</h1>
+        <h2 class="blink" id="date" align="center" style="color: darkviolet; clear: both;font-family:'Muli', sans-serif;font-size: xx-large;"></h2></br>
+        <h2 style="font-family:'Muli', sans-serif;font-size: x-large;" align="center">WORLDWIDE</h2>
+        <div class="names" style="color: red;"><h2>Total Cases</h2> <h3 id="confirmed"></h3></div>
         <div class="names" style="color:teals;"><h2>New Cases</h2> <h3 id="new_cases"></h3> </div>
         <div class="names" style="color: blue;"><h2>Acitve</h2> <h3 id="active"></h3> </div>
         <div class="names" style="color: green;"><h2>Recovered</h2> <h3 id="recovered"></h3></div>
         <div class="names" style="color: red;"><h2>Deaths</h2> <h3 id="deaths"></h3> </div></br>
-        <center><a href="state.html" target="_blank" style="font-weight: bolder;"><h1>India States and Districts</h1></a></center></br>
+        <h2 style="clear: both;font-family:'Muli', sans-serif;font-size: x-large;" align="center">INDIA</h2>
+        <div class="names" style="color: red;"><h2>Total Cases</h2> <h3 id="indiaconfirmed"></h3></div>
+        <div class="names" style="color:teals;"><h2>New Cases</h2> <h3 id="indianewcases"></h3> </div>
+        <div class="names" style="color: blue;"><h2>Acitve</h2> <h3 id="indiaactive"></h3> </div>
+        <div class="names" style="color: green;"><h2>Recovered</h2> <h3 id="indiarecovered"></h3></div>
+        <div class="names" style="color: red;"><h2>Deaths</h2> <h3 id="indiadeaths"></h3> </div></br>
+        <center><a href="state.html" target="_blank" style="font-weight: bolder;"><h1>India States &#38 Districts</h1></a></center></br>
         <h2 style="font-family: 'Muli', sans-serif; text-align: center; font-weight: bolder;font-size: 30px; color: darkorange;">keep track of Covid-19 Patients by using Aarogya setu app</h2>
-        <a href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu"><img class="center" style="height: 120px;" src="images/28_04_2020-aarogya_setu_app_20227725_83451376.jpg" alt+"aarogya_setu" /></a>
+        <a href="https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu"><img class="center" style="height: 150px;width: 200px;" src="images/28_04_2020-aarogya_setu_app_20227725_83451376.jpg" alt+"aarogya_setu" /></a>
         <script type="text/javascript">
         var siteWidth = 1280;
 var scale = screen.width /siteWidth
@@ -50,7 +57,25 @@ document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='
                     document.getElementById("deaths").innerHTML=death.toLocaleString('en-IN')+" [↑"+new_death.toLocaleString('en-IN')+"]";
                     document.getElementById("new_cases").innerHTML=new_confirm.toLocaleString('en-IN');
                 })
-                
+                fetch("https://corona-api.com/countries/in")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    console.log(data.data)
+                    indiaconf=data.data.latest_data['confirmed']
+                    indiadeaths=data.data.latest_data['deaths']
+                    indiarecovered=data.data.latest_data['recovered']   
+                    indianewdeaths=data.data.timeline[0].new_deaths 
+                    indiacases=data.data.timeline[0].new_confirmed
+                    indianewrecovered=data.data.timeline[0].new_recovered
+                    indiaactive=data.data.timeline[0].active
+                    document.getElementById("indiaconfirmed").innerHTML=indiaconf.toLocaleString('en-IN');
+                    document.getElementById("indianewcases").innerHTML=indiacases.toLocaleString('en-IN');
+                    document.getElementById("indiaactive").innerHTML=indiaactive.toLocaleString('en-IN');
+                    document.getElementById("indiarecovered").innerHTML=indiarecovered.toLocaleString('en-IN')+" [↑"+indianewrecovered.toLocaleString('en-IN')+"]";
+                    document.getElementById("indiadeaths").innerHTML=indiadeaths.toLocaleString('en-IN')+" [↑"+indianewdeaths.toLocaleString('en-IN')+"]";
+                })
         </script>
     </body>
 </html>
