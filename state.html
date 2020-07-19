@@ -18,40 +18,5 @@
     
         <tbody id="myTable"></tbody>
     </table>
-        <script type="text/javascript">
-            fetch("https://api.covidindiatracker.com/state_data.json")
-                .then(function(response){
-                    return response.json();
-                })
-                .then(function(data){
-                    var table = document.getElementById('myTable')
-                    for(var i=0;i<data.length;i++){
-                        var row = `<tr>
-							<td>${data[i].state.toLocaleString('en-IN')}</td>
-							<td>${data[i].confirmed.toLocaleString('en-IN')}</td>
-							<td>${data[i].active.toLocaleString('en-IN')}</td>
-                            <td>${data[i].recovered.toLocaleString('en-IN')}</td>
-                            <td>${data[i].deaths.toLocaleString('en-IN')}</td>
-                            <td><input type="button" value="click here" onclick=func(${i}) /></td>
-					  </tr>`
-                      table.innerHTML += row
-                    }
-                })
-            </script>
-        <script type="text/javascript">
-        function func(i){
-            document.write("<h1> Districts \xa0\xa0\xa0 - \xa0\xa0\xa0 Total cases </h1>");
-            fetch("https://api.covidindiatracker.com/state_data.json")
-                .then(function(response){
-                    return response.json();
-                })
-                .then(function(data){
-                    var state=data[i].districtData
-                    for(var j=0;j<state.length;j++){
-                        if(state[j].name!="Unknown")
-                        document.write("<h1>"+state[j].name+'\xa0\xa0\xa0'+"-"+'\xa0\xa0\xa0'+state[j].confirmed.toLocaleString('en-IN')+"</h1>");
-                    }
-                })
-        }
-        </script>
+        <script type="text/javascript" src="javascript/state.js"></script>
 </html>
