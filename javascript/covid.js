@@ -15,6 +15,7 @@ document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='
                     new_confirm=data.data[0]['new_confirmed']
                     new_recover=data.data[0]['new_recovered']
                     new_death=data.data[0]['new_deaths']
+                    document.getElementById("date").innerHTML="("+"last updated on "+date+")";
                     document.getElementById("active").innerHTML=active.toLocaleString('en-IN');
                     document.getElementById("confirmed").innerHTML=confirm.toLocaleString('en-IN');
                     document.getElementById("recovered").innerHTML=recover.toLocaleString('en-IN')+" [↑"+new_recover.toLocaleString('en-IN')+"]";
@@ -34,7 +35,6 @@ document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='
                     indianewrecovered=data.data.timeline[0].new_recovered
                     indiaactive=data.data.timeline[0].active
                     indiadate=data.data.updated_at
-                    document.getElementById("date").innerHTML="("+"last updated on "+indiadate+")";
                     document.getElementById("indiaconfirmed").innerHTML=indiaconf.toLocaleString('en-IN');
                     document.getElementById("indianewcases").innerHTML=indiacases.toLocaleString('en-IN');
                     document.getElementById("indiaactive").innerHTML=indiaactive.toLocaleString('en-IN');
